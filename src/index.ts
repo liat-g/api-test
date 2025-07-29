@@ -5,6 +5,7 @@ import * as cookieParser from 'cookie-parser';
 import * as compression from 'compression';
 import * as cors from 'cors';
 import * as mongoose from 'mongoose';
+import router from './router';
 
 //need to use the asterisk for some reason
 
@@ -30,3 +31,4 @@ require("mongoose").Promise = Promise //require is new syntax
 mongoose.connect(MONGO_URL);
 mongoose.connection.on('error', (error: Error) => console.log(error))
 
+app.use('/', router());
